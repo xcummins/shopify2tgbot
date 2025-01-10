@@ -7,7 +7,7 @@ import subprocess
 import sqlite3
 
 with open(os.devnull, 'w') as devnull:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'requirements.txt', '-q'], stdout=devnull, stderr=devnull)
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt', '-q'], stdout=devnull, stderr=devnull)
 
 def clearConsole():
     system("cls" if name in ("nt", "dos") else "clear")
