@@ -12,7 +12,7 @@ def ensure_pip():
     try:
         subprocess.run('curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         subprocess.run(f'{sys.executable} get-pip.py', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        subprocess.run(f'{sys.executable} -m pip install --upgrade pip setuptools', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(f'{sys.executable} -m pip install --upgrade pip setuptools wheel packaging', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     except Exception as e:
         print(e)
 
