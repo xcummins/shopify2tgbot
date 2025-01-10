@@ -6,6 +6,7 @@ from sys import argv
 import subprocess
 import sqlite3
 
+print('loading...')
 
 def ensure_pip():
     try:
@@ -120,6 +121,7 @@ def do_files_exist():
     return any(list(map(exists, ["config.ini", "images", "data.db"])))
 
 if __name__ == "__main__":
+    from utf_cleaner import UTFStringCleaner
     if "--nointeract" in argv:
         if do_files_exist():
             exit(0)
@@ -148,8 +150,10 @@ if __name__ == "__main__":
 
 
     if confirmation.lower() in ["y", "yes"]:
+
         print("Вы можете узнать как получить токен бота, перейдя по ссылке: https://youtu.be/fyISLEvzIec")
         token = input("Введите токен бота: ")
+
         print("Вы можете получить ваш ID, написав \"/start\" боту @userinfobot")
         main_admin_id = input("Введите ID главного администратора: ")
         if main_admin_id.isalnum():
@@ -181,6 +185,7 @@ if __name__ == "__main__":
             print("Папка \"backups\" была создана.")
         else:
             print("Неверный ID главного администратора.")
+        token = cleaner.clean(token)
     else:
         print("Установка была отменена.")
 
