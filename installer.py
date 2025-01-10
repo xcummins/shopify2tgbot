@@ -6,18 +6,15 @@ from sys import argv
 import subprocess
 import sqlite3
 
-import ensurepip
 
 def ensure_pip():
     try:
-        # Check if pip is installed by running 'pip --version'
-        subprocess.run([sys.executable, "-m", "pip", "--version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    except subprocess.CalledProcessError:
-        # If pip isn't installed, install it using ensurepip
-        print("pip not found. Installing pip...")
-        ensurepip.bootstrap()
-        subprocess.run([sys.executable, "-m", "pip", "install", "--upgrade", "pip"], check=True)
+        subprocess.run('curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(f'{sys.executable} get-pip.py', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except Exception as e:
+        print(e)
 
+ensure_pip()
 
 with open(os.devnull, 'w') as devnull:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt', '-q'], stdout=devnull, stderr=devnull)
