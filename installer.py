@@ -1,6 +1,7 @@
 from os import system, name, remove, mkdir, rmdir, listdir, environ
 from os.path import exists
 import sys
+import os
 from sys import argv
 import subprocess
 import sqlite3
