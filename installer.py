@@ -18,8 +18,11 @@ def ensure_pip():
 
 ensure_pip()
 
-with open(os.devnull, 'w') as devnull:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt', '-q'], stdout=devnull, stderr=devnull)
+try:
+    with open(os.devnull, 'w') as devnull:
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt', '-q'], stdout=devnull, stderr=devnull)
+except Exception as e:
+    print(e)
 
 def clearConsole():
     system("cls" if name in ("nt", "dos") else "clear")
