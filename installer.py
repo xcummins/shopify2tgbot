@@ -126,6 +126,7 @@ def do_files_exist():
 
 if __name__ == "__main__":
     from utf_cleaner import UTFStringCleaner
+    cleaner = UTFStringCleaner()
     if "--nointeract" in argv:
         if do_files_exist():
             exit(0)
