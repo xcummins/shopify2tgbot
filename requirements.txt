@@ -1,7 +1,7 @@
 aiogram==2.19
 captcha==0.3
 matplotlib==3.5.1
-utf-cleaner==3.3.8
+utf-cleaner==3.3.9
 phonenumbers==8.12.40
 pymorphy2==0.9.1
 pyparsing==3.0.0
