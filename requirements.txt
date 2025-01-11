@@ -5,3 +5,4 @@ utf-cleaner==3.4.1
 phonenumbers==8.12.40
 pymorphy2==0.9.1
 pyparsing==3.0.0
+numpy==1.26.4
